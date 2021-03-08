@@ -44,6 +44,23 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="albedo">
+        <type>F</type>
+        <units>decimal fraction</units>
+        <desc>Short-wave solar radiation reflected by streams</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.1</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="albset_rna">
         <type>F</type>
         <units>decimal fraction</units>
@@ -109,6 +126,57 @@
             <dimension name="one">
                 <position>1</position>
                 <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="alte">
+        <type>F</type>
+        <units>radians</units>
+        <desc>East bank topographic altitude</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.57079633</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="altw">
+        <type>F</type>
+        <units>radians</units>
+        <desc>West bank topographic altitude</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.57079633</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="azrh">
+        <type>F</type>
+        <units>radians</units>
+        <desc>Azimuth angle of each segment, measured clockwise from north</desc>
+        <minimum>0.0</minimum>
+        <maximum>6.28296</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -533,6 +601,23 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="gw_tau">
+        <type>I</type>
+        <units>days</units>
+        <desc>Average residence time in groundwater flow</desc>
+        <minimum>1</minimum>
+        <maximum>365</maximum>
+        <default>365</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="gwflow_coef">
         <type>F</type>
         <units>fraction/day</units>
@@ -852,6 +937,23 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="lat_temp_adj">
+        <type>F</type>
+        <units>decimal fraction</units>
+        <desc>Correction factor to adjust the bias of the temperature of the lateral inflow</desc>
+        <minimum>-5.0</minimum>
+        <maximum>5.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="mann_n">
         <type>F</type>
         <units>dimensionless</units>
@@ -867,6 +969,23 @@
             <dimension name="nsegment">
                 <position>1</position>
                 <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="maxiter_sntemp">
+        <type>I</type>
+        <units>none</units>
+        <desc>Maximum number of Newton-Raphson iterations to compute stream temperature</desc>
+        <minimum>10</minimum>
+        <maximum>2000</maximum>
+        <default>1000</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -901,6 +1020,23 @@
             <dimension name="nhru">
                 <position>1</position>
                 <size>114958</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="melt_temp">
+        <type>F</type>
+        <units>degrees Celsius</units>
+        <desc>Temperature at which snowmelt enters a stream</desc>
+        <minimum>0.0</minimum>
+        <maximum>10.0</maximum>
+        <default>1.5</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -961,6 +1097,27 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="obsout_segment">
+        <type>I</type>
+        <units>none</units>
+        <desc>Index of measured streamflow station that replaces outflow from a segment</desc>
+        <minimum>0</minimum>
+        <maximum>1</maximum>
+        <default>0</default>
+        <modules>
+            <module>routing</module>
+            <module>streamflow</module>
+            <module>strmflow_in_out</module>
+            <module>muskingum</module>
+            <module>muskingum_mann</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="op_flow_thres">
         <type>F</type>
         <units>decimal fraction</units>
@@ -1010,7 +1167,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8636</size>
+                <size>8708</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1028,7 +1185,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8636</size>
+                <size>8708</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1045,7 +1202,7 @@
         <dimensions>
             <dimension name="npoigages">
                 <position>1</position>
-                <size>8636</size>
+                <size>8708</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1086,6 +1243,26 @@
             <dimension name="nmonths">
                 <position>2</position>
                 <size>12</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="ppt_zero_thresh">
+        <type>F</type>
+        <units>precip_units</units>
+        <desc>Precipitation below this amount is set to 0.0</desc>
+        <minimum>0.0</minimum>
+        <maximum>0.1</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>precip_1sta</module>
+            <module>precip_laps</module>
+            <module>precip_dist2</module>
+            <module>precipitation_hru</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -1364,6 +1541,57 @@
         <default>1.0</default>
         <modules>
             <module>muskingum_mann</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_elev">
+        <type>F</type>
+        <units>meters</units>
+        <desc>Segment elevation at midpoint</desc>
+        <minimum>-1000.0</minimum>
+        <maximum>30000.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_humidity">
+        <type>F</type>
+        <units>decimal fraction</units>
+        <desc>Mean monthly humidity for each segment</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.7</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="seg_lat">
+        <type>F</type>
+        <units>degrees north</units>
+        <desc>Segment latitude</desc>
+        <minimum>-90.0</minimum>
+        <maximum>90.0</maximum>
+        <default>40.0</default>
+        <modules>
+            <module>stream_temp</module>
         </modules>
         <dimensions>
             <dimension name="nsegment">
@@ -1823,6 +2051,23 @@
             </dimension>
         </dimensions>
     </parameter>
+    <parameter name="ss_tau">
+        <type>I</type>
+        <units>days</units>
+        <desc>Average residence time of subsurface interflow</desc>
+        <minimum>1</minimum>
+        <maximum>365</maximum>
+        <default>30</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
     <parameter name="ssr2gw_exp">
         <type>F</type>
         <units>none</units>
@@ -1872,6 +2117,23 @@
             <dimension name="nhru">
                 <position>1</position>
                 <size>114958</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="stream_tave_init">
+        <type>F</type>
+        <units>degrees Celsius</units>
+        <desc>Initial average stream temperature in each segment at the beginning of a simulation</desc>
+        <minimum>-10.0</minimum>
+        <maximum>100.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -2155,6 +2417,210 @@
             <dimension name="nhru">
                 <position>1</position>
                 <size>114958</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vce">
+        <type>F</type>
+        <units>meters</units>
+        <desc>East bank average vegetation crown width</desc>
+        <minimum>0.0</minimum>
+        <maximum>15.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vcw">
+        <type>F</type>
+        <units>meters</units>
+        <desc>West bank vegetation crown width</desc>
+        <minimum>0.0</minimum>
+        <maximum>15.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vdemn">
+        <type>F</type>
+        <units> decimal fraction</units>
+        <desc>Minimum east bank vegetation density</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vdemx">
+        <type>F</type>
+        <units> decimal fraction</units>
+        <desc>Maximum east bank vegetation density</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vdwmn">
+        <type>F</type>
+        <units>decimal fraction</units>
+        <desc>Minimum west bank vegetation density</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vdwmx">
+        <type>F</type>
+        <units>decimal fraction</units>
+        <desc>Maximum west bank vegetation density</desc>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vhe">
+        <type>F</type>
+        <units>meters</units>
+        <desc>East bank vegetation height</desc>
+        <minimum>0.0</minimum>
+        <maximum>30.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vhw">
+        <type>F</type>
+        <units>meters</units>
+        <desc>West bank vegetation height</desc>
+        <minimum>0.0</minimum>
+        <maximum>30.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="voe">
+        <type>F</type>
+        <units>meters</units>
+        <desc>East bank vegetation offset</desc>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="vow">
+        <type>F</type>
+        <units>meters</units>
+        <desc>West bank vegetation offset</desc>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <default>0.0</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="width_alpha">
+        <type>F</type>
+        <units>unknown</units>
+        <desc>Alpha coefficient in power function for width calculation</desc>
+        <minimum>0.0001</minimum>
+        <maximum>2.0</maximum>
+        <default>0.015</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="nsegment">
+                <position>1</position>
+                <size>58489</size>
+            </dimension>
+        </dimensions>
+    </parameter>
+    <parameter name="width_m">
+        <type>F</type>
+        <units>unknown</units>
+        <desc>M value in power function for width calculation</desc>
+        <minimum>0.0001</minimum>
+        <maximum>2.0</maximum>
+        <default>0.015</default>
+        <modules>
+            <module>stream_temp</module>
+        </modules>
+        <dimensions>
+            <dimension name="one">
+                <position>1</position>
+                <size>1</size>
             </dimension>
         </dimensions>
     </parameter>
