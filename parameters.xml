@@ -140,9 +140,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -157,9 +157,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -612,9 +612,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -948,9 +948,13 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
+            </dimension>
+            <dimension name="nmonths">
+                <position>2</position>
+                <size>12</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -2062,9 +2066,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -2567,9 +2571,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
@@ -2584,9 +2588,9 @@
             <module>stream_temp</module>
         </modules>
         <dimensions>
-            <dimension name="one">
+            <dimension name="nsegment">
                 <position>1</position>
-                <size>1</size>
+                <size>58489</size>
             </dimension>
         </dimensions>
     </parameter>
